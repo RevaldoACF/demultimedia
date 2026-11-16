@@ -2,12 +2,13 @@
 name = "demultimedia"
 version = "0.1.0"
 edition = "2024"
-description = "Native Rust GUI to lowercase photo file extensions without touching a terminal"
+description = "Native Rust GUI to compress, downscale, and convert photos without touching a terminal"
 license = "MIT"
 repository = "https://github.com/RevaldoACF/demultimedia"
 
 [dependencies]
 eframe = "0.31"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp", "gif", "bmp", "tiff", "ico", "tga", "qoi", "pnm", "ff"] }
 rfd = "0.15"
 walkdir = "2"
 

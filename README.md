@@ -1,34 +1,32 @@
 # demultimedia
 
-A tiny native Rust desktop app for fixing uppercase photo extensions like `.JPG` or `.HEIC` without opening a terminal or writing a bash loop.
+A native Rust desktop app for shrinking photo file sizes and converting between image formats without touching a terminal or remembering ffmpeg flags.
 
-Cameras and phones still dump files with screamed extensions. Pick a folder (or drop it on the window), check the preview list, and click once to lowercase them.
+Drop a folder or a bunch of photos onto the window, drag the quality and scale sliders, pick a target format, and hit process. By default it writes to a `demultimedia_out` subfolder so your originals stay untouched.
 
-## What it does right now
+## What it does
 
-- Scans a folder (and subfolders if checked) for photo files with uppercase or mixed-case extensions.
-- Leaves the filename stem alone (`IMG_001.JPG` becomes `IMG_001.jpg`).
-- Skips files that would collide with an existing lowercase file in the same folder instead of overwriting anything.
-- Handles case-insensitive filesystems by hopping through a temporary filename when needed.
-- Runs as a native GUI binary with no console window.
+- Lowers quality (1 to 100) and optionally downscales resolution (10% to 100%).
+- Converts between `jpg`, `png`, `webp`, `gif`, `bmp`, `tiff`, and `svg`.
+- Reads `jpg`, `jpeg`, `png`, `webp`, `gif`, `bmp`, `tiff`, `tif`, `ico`, `tga`, `qoi`, `pnm`, and `farbfeld`.
+- Shows original size, new size, and percentage saved per file.
+- Runs as a standalone native GUI binary with no console window.
 
-Default extensions covered: `jpg`, `jpeg`, `png`, `webp`, `gif`, `bmp`, `tiff`, `tif`, `heic`, `heif`, `avif`, `raw`, `cr2`, `nef`, `arw`, `dng`.
+## Download
 
-## Build and run
+Grab the prebuilt binary for your OS from the Releases page:
 
-You need Rust (`cargo`) installed.
+- Windows: `demultimedia-windows-x86_64.exe` or `.zip`
+- Linux: `demultimedia-linux-x86_64`, `.deb`, `.rpm`, or `.tar.gz`
+- macOS: `demultimedia-macos-aarch64.tar.gz` or `demultimedia-macos-x86_64.tar.gz`
 
-```bash
-cargo run --release
-```
-
-Or build the binary and launch it from your file manager:
+## Build from source
 
 ```bash
 cargo build --release
 ```
 
-The binary lands at `target/release/demultimedia`. On Linux, `demultimedia.desktop` sets `Terminal=false` if you want to drop it into `~/.local/share/applications/`.
+The binary lands at `target/release/demultimedia`. On Linux, `demultimedia.desktop` sets `Terminal=false` if you want to launch it from your app menu.
 
 ## Tests
 
