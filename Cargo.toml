@@ -1,0 +1,11 @@
+[package]
+name = "demultimedia"
+version = "0.1.0"
+edition = "2024"
+description = "Native Rust GUI to lowercase photo file extensions without touching a terminal"
+license = "MIT"
+
+[dependencies]
+eframe = "0.31"
+rfd = "0.15"
+walkdir = "2"

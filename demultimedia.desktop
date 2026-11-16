@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=demultimedia
+Comment=Lowercase photo file extensions with a native GUI
+Exec=demultimedia
+Terminal=false
+Categories=Utility;Graphics;
