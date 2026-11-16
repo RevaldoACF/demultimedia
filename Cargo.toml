@@ -4,8 +4,23 @@ version = "0.1.0"
 edition = "2024"
 description = "Native Rust GUI to lowercase photo file extensions without touching a terminal"
 license = "MIT"
+repository = "https://github.com/RevaldoACF/demultimedia"
 
 [dependencies]
 eframe = "0.31"
 rfd = "0.15"
 walkdir = "2"
+
+[package.metadata.deb]
+maintainer = "RevaldoACF"
+section = "utils"
+assets = [
+    ["target/x86_64-unknown-linux-gnu/release/demultimedia", "usr/bin/demultimedia", "755"],
+    ["demultimedia.desktop", "usr/share/applications/demultimedia.desktop", "644"],
+]
+
+[package.metadata.generate-rpm]
+assets = [
+    { source = "target/x86_64-unknown-linux-gnu/release/demultimedia", dest = "/usr/bin/demultimedia", mode = "755" },
+    { source = "demultimedia.desktop", dest = "/usr/share/applications/demultimedia.desktop", mode = "644" },
+]
